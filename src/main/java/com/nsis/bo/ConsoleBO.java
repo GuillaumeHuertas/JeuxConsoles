@@ -29,8 +29,8 @@ public class ConsoleBO implements Serializable {
 	@Column(name = "PROD")
 	private String dev;
 
-//	@ManyToMany(mappedBy = "console")
-//	private Set<JeuxBO> jeux;
+	@ManyToMany(mappedBy = "console")
+	private Set<JeuxBO> jeux;
 
 	public Long getId() {
 		return id;
@@ -56,13 +56,13 @@ public class ConsoleBO implements Serializable {
 		this.dev = dev;
 	}
 
-//	public Set<JeuxBO> getJeux() {
-//		return jeux;
-//	}
-//
-//	public void setJeux(Set<JeuxBO> jeux) {
-//		this.jeux = jeux;
-//	} 
+	public Set<JeuxBO> getJeux() {
+		return jeux;
+	}
+
+	public void setJeux(Set<JeuxBO> jeux) {
+		this.jeux = jeux;
+	} 
 	
 	public ConsoleBO() {
 		
