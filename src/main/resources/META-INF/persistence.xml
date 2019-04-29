@@ -6,6 +6,9 @@
 		transaction-type="RESOURCE_LOCAL">
 
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>com.nsis.bo.JeuxBO</class>
+		<class>com.nsis.bo.ConsoleBO</class>
 
 
 		<properties>

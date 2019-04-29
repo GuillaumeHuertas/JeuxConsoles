@@ -33,16 +33,16 @@ public class JeuxBO implements Serializable {
 	@Column(name = "NOTE")
 	private int note; 
 	
-	@Column(name = "NOTE")
+	@Column(name = "IMAGE")
 	private Long image; 
 	
-	@ManyToMany
-	@JoinTable(
-	  name = "jeux_console")
-	private Set<ConsoleBO> console; 
+//	@ManyToMany
+//	@JoinTable(
+//	  name = "jeux_console")
+//	private Set<ConsoleBO> console; 
 	
 	@Column(name = "FINISHED")
-	private boolean finished;
+	private String finished;
 
 	public Long getId() {
 		return id;
@@ -84,19 +84,19 @@ public class JeuxBO implements Serializable {
 		this.image = image;
 	}
 
-	public Set<ConsoleBO> getConsole() {
-		return console;
-	}
+//	public Set<ConsoleBO> getConsole() {
+//		return console;
+//	}
+//
+//	public void setConsole(Set<ConsoleBO> console) {
+//		this.console = console;
+//	}
 
-	public void setConsole(Set<ConsoleBO> console) {
-		this.console = console;
-	}
-
-	public boolean isFinished() {
+	public String isFinished() {
 		return finished;
 	}
 
-	public void setFinished(boolean finished) {
+	public void setFinished(String finished) {
 		this.finished = finished;
 	} 
 	

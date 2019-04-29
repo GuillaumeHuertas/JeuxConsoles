@@ -1,0 +1,5 @@
+com/nsis/dao/JeuxDAO.class
+com/nsis/dao/InterfaceJeuxDAO.class
+com/nsis/bo/ConsoleBO.class
+com/nsis/bo/JeuxBO.class
+com/nsis/exception/JeuxDAOException.class

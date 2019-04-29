@@ -17,16 +17,21 @@ public class JeuxDAO implements InterfaceJeuxDAO{
 	@PersistenceContext
 	private EntityManager em;
 
-	@Autowired
-	private ApplicationContext applicationContext;
+//	@Autowired
+//	private ApplicationContext applicationContext;
 	
 	public JeuxDAO() {
 		
 	}
 
 	@Transactional
-	public void insertJeux(JeuxBO jeux) {
+	public void insertJeux(JeuxBO jeux) throws JeuxDAOException {
 		
+		if (jeux == null) {
+			throw new JeuxDAOException("Le jeux ne peut être nul"); 
+				
+			
+		}
 		em.merge(jeux);
 		
 	}
