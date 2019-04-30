@@ -1,6 +1,7 @@
 package com.nsis.bo;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -65,7 +66,7 @@ public class ConsoleBO implements Serializable {
 	} 
 	
 	public ConsoleBO() {
-		
+		this.jeux = new HashSet<JeuxBO>(); 
 	}
 	
 	

@@ -1,10 +1,13 @@
 package com.nsis.bo;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +27,7 @@ public class JeuxBO implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id; 
 	
-	@Column(name = "JEUX")
+	@Column(name = "NAME")
 	private String name; 
 	
 	@Column(name = "DEV")
@@ -34,15 +37,18 @@ public class JeuxBO implements Serializable {
 	private int note; 
 	
 	@Column(name = "IMAGE")
-	private Long image; 
+	private String image; 
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {
+		    CascadeType.PERSIST,
+		    CascadeType.MERGE
+		})
 	@JoinTable(
 	  name = "jeux_console")
 	private Set<ConsoleBO> console; 
 	
 	@Column(name = "FINISHED")
-	private String finished;
+	private boolean finished;
 
 	public Long getId() {
 		return id;
@@ -76,11 +82,11 @@ public class JeuxBO implements Serializable {
 		this.note = note;
 	}
 
-	public Long getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(Long image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
@@ -92,11 +98,11 @@ public class JeuxBO implements Serializable {
 		this.console = console;
 	}
 
-	public String isFinished() {
+	public boolean isFinished() {
 		return finished;
 	}
 
-	public void setFinished(String finished) {
+	public void setFinished(boolean finished) {
 		this.finished = finished;
 	} 
 	
@@ -107,6 +113,7 @@ public class JeuxBO implements Serializable {
 	
 	// Constructeur 
 	public JeuxBO() {
+		this.console = new HashSet<ConsoleBO>(); 
 		
 	}
 	

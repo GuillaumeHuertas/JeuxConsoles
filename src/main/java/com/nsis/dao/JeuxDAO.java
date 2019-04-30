@@ -17,8 +17,8 @@ public class JeuxDAO implements InterfaceJeuxDAO{
 	@PersistenceContext
 	private EntityManager em;
 
-//	@Autowired
-//	private ApplicationContext applicationContext;
+	@Autowired
+	private ApplicationContext applicationContext;
 	
 	public JeuxDAO() {
 		
@@ -30,9 +30,10 @@ public class JeuxDAO implements InterfaceJeuxDAO{
 		if (jeux == null) {
 			throw new JeuxDAOException("Le jeux ne peut être nul"); 
 				
-			
 		}
 		em.merge(jeux);
+		
+		
 		
 	}
 
