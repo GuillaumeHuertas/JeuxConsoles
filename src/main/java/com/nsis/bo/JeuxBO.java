@@ -39,6 +39,9 @@ public class JeuxBO implements Serializable {
 	@Column(name = "IMAGE")
 	private String image; 
 	
+	// EAGER limite en volumétrie 
+	// Regarder Pagination JPA
+	// FetchType.LAZY
 	@ManyToMany(fetch = FetchType.EAGER, cascade = {
 		    CascadeType.PERSIST,
 		    CascadeType.MERGE
